@@ -1,0 +1,6 @@
+{
+    "name": "ione5/sman1_lasem",
+    "require": {
+        "dompdf/dompdf": "^0.8.5"
+    }
+}
