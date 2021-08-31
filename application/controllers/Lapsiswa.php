@@ -1,10 +1,10 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Lapsiswa extends CI_Controller 
+class Lapsiswa extends CI_Controller
 {
 
-	public function __construct()
+    public function __construct()
     {
         parent::__construct();
         // call modul database
@@ -28,18 +28,18 @@ class Lapsiswa extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('lapsiswa/index', $data);
             $this->load->view('templates/footer');
-        }else {
+        } else {
             // echo 'no session';
+            // echo "tidak ada session";
             redirect('notfound');
         }
-        
     }
 
-    public function cetak($nama_kelas)
+    public function cetak()
     {
         // echo("OKKKKKK");
         $data['judul'] = 'Cetak Laporan Siswa';
-        $data['sis'] = $this->Lapsiswa_model->getAllSiswaByLevel($nama_kelas);
+        $data['sis'] = $this->Lapsiswa_model->getAllSiswa();
 
         $this->load->view('templates/header', $data);
         $this->load->view('lapsiswa/cetak', $data);

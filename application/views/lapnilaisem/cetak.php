@@ -92,8 +92,8 @@
 </div>
 <!-- End of Main Content -->
 <style type="text/css">
-  @media print{
-    .btn-kembali-cetak{
+  @media print {
+    .btn-kembali-cetak {
       visibility: hidden;
     }
   }
@@ -102,5 +102,3 @@
   // print
   window.print();
 </script>
-
-

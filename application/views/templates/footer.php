@@ -1,10 +1,10 @@
 <!-- Footer -->
-<div id="page-container" >
+<div id="page-container">
   <div id="content-wrap">
     <footer class="sticky-footer bg-white" id="footer">
       <div class="container my-auto">
         <div class="copyright text-center my-auto">
-          <span>Copyright &copy; Sistem Informasi Nilai | SMA N 1 Lasem Rembang <?= date('Y'); ?></span>
+          <span>Copyright &copy; Sistem Informasi Nilai | SMPN 3 <?= date('Y'); ?></span>
         </div>
       </div>
     </footer>

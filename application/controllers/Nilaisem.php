@@ -1,10 +1,10 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Nilaisem extends CI_Controller 
+class Nilaisem extends CI_Controller
 {
 
-	public function __construct()
+    public function __construct()
     {
         parent::__construct();
         // call modul database
@@ -45,11 +45,10 @@ class Nilaisem extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('nilaisem/index', $data);
             $this->load->view('templates/footer');
-        }else {
+        } else {
             // echo 'no session';
             redirect('notfound');
         }
-        
     }
 
     public function getNamaSiswa()
@@ -71,9 +70,9 @@ class Nilaisem extends CI_Controller
         $data['kls'] = $this->Nilaisem_model->getAllKelasIndex();
         $data['map'] = $this->Nilaisem_model->getAllMapel();
         $data['smt'] = array(
-                array('semester' => 'I'),
-                array('semester' => 'II')
-            );
+            array('semester' => 'I'),
+            array('semester' => 'II')
+        );
         $data['tahun'] = array(
             array('tahun_ajaran' => '2017/2018'),
             array('tahun_ajaran' => '2018/2019'),
@@ -119,7 +118,6 @@ class Nilaisem extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('nilaisem/tambah', $data);
             $this->load->view('templates/footer');
-
         } else {
             # berhasil
             $this->Nilaisem_model->tambahDataNilaisem();
@@ -127,8 +125,6 @@ class Nilaisem extends CI_Controller
             redirect('nilaisem');
             // echo '<script>alrt("TESSSSSSSSS");</script>';
         }
-
-        
     }
 
     public function getListNis()
@@ -155,7 +151,6 @@ class Nilaisem extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('nilaisem/detail', $data);
         $this->load->view('templates/footer');
-
     }
 
     public function ubah($nis)
@@ -221,5 +216,9 @@ class Nilaisem extends CI_Controller
             redirect('nilaisem');
         }
     }
-
+    // get nama siswa by nis
+    // public function getNamaSiswa()
+    // {
+    //     echo json_encode($this->Nilaieks_model->getNamasiswaByNis($_POST['nis']));
+    // }
 }

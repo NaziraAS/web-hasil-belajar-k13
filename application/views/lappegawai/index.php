@@ -78,7 +78,7 @@
       <div class="col-md-12">
         <form action="" method="post">
           <!-- <input type="" name="store-filterLappegawai" class="store-filterLappegawai"> -->
-          <a href="http://lappegawai" class="btn btn-success float-right href-lappegawai">Cetak</a>
+          <a href="<?= base_url('lappegawai/cetak') ?>" class="btn btn-success float-right href-lappegawai">Cetak</a>
         </form>
       </div>
     </div>

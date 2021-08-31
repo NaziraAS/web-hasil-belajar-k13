@@ -55,7 +55,7 @@
                 <td style="width: 11%"><?= $s['nama_kelas']; ?></td>
                 <td id="row-alamat"><?= $s['alamat']; ?></td>
                 <td style="width: 18%" class="px-0">
-                  <a href="" data-toggle="modal" data-target="#detailSiswaModal" class="btn btn-secondary btn-sm tampilModalDetail" data-nis="<?= $s['nis']; ?>" data-nama="<?= $s['nama_siswa']; ?>" data-tgllahir="<?= $s['tgl_lahir']; ?>" data-username="<?= $s['username']; ?>" data-pass="<?= $s['password']; ?>">Detail
+                  <a href="" data-toggle="modal" data-target="#detailSiswaModal" class="btn btn-secondary btn-sm tampilModalDetail" data-nis="<?= $s['nis']; ?>" data-nama="<?= $s['nama_siswa']; ?>" data-tgllahir="<?= $s['tgl_lahir']; ?>" data-alamat="<?= $s['alamat']; ?>" data-username="<?= $s['username']; ?>" data-pass="<?= $s['password']; ?>">Detail
                   </a>
                   <a href="<?= base_url(); ?>siswa/ubah/<?= $s['nis'] ?>" class="btn btn-success btn-sm">ubah
                   </a>
@@ -95,6 +95,10 @@
           <div class="form-group">
             <label>Tanggal lahir</label>
             <input type="text" class="form-control" name="tgl_lahir" id="tgl_lahir" value="" disabled>
+          </div>
+          <div class="form-group">
+            <label>Alamat</label>
+            <input type="text" class="form-control" name="alamat" id="alamat" value="" disabled>
           </div>
           <div class="form-group">
             <label>Username</label>

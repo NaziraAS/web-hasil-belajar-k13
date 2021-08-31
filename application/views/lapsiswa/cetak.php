@@ -10,7 +10,7 @@
       <div class="col-md-12 center">
         <!-- <a href="<?= base_url(); ?>presensi/tambah" class="btn btn-primary">Tambah Data Presensi</a> -->
         <h3 class="text-center"><?= $judul; ?></h3>
-        <p class="text-center">Data laporan Data laporan Data laporan Data laporan Data laporan </p>
+        <p class="text-center">Data laporan</p>
       </div>
     </div>
 
@@ -67,8 +67,8 @@
 </div>
 <!-- End of Main Content -->
 <style type="text/css">
-  @media print{
-    .btn-kembali-cetak{
+  @media print {
+    .btn-kembali-cetak {
       visibility: hidden;
     }
   }
@@ -77,5 +77,3 @@
   // print
   window.print();
 </script>
-
-

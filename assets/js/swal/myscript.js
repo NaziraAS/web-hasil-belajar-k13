@@ -43,7 +43,7 @@ $('.tombol-hapus-pegawai').on('click', function(e){
 
 	Swal.fire({
 		title: 'Hapus?',
-		text: "Silakan BACKUP terlebih dahulu data: Nilai Ektrakulikuler, Ektrakulikuler, Nilai Semester dan Mata Pelajaran dari pegawai ini !",
+		text: "Silakan BACKUP terlebih dahulu data:Nilai Semester dan Mata Pelajaran ini !",
 		icon: 'warning',
 		showCancelButton: true,
 		confirmButtonColor: '#3085d6',
@@ -66,7 +66,7 @@ $('.tombol-hapus-siswa').on('click', function(e){
 
 	Swal.fire({
 		title: 'Hapus?',
-		text: "Silakan BACKUP terlebih dahulu data: Detail presensi, Ektrakulikuler, Nilai Semester dan Mata Pelajaran dari siswa ini !",
+		text: "Silakan BACKUP terlebih dahulu data: Nilai Semester dan Mata Pelajaran dari siswa ini !",
 		icon: 'warning',
 		showCancelButton: true,
 		confirmButtonColor: '#3085d6',

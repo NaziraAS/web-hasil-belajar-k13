@@ -18,7 +18,7 @@
             <label for="nama_kelas">Kelas</label>
             <select name="nama_kelas" class="form-control" id="nama_kelas" onchange="filterCetakSiswa()">
               <option>-Pilih-</option>
-              <?php foreach($kelas as $z): ?>
+              <?php foreach ($kelas as $z) : ?>
                 <option value="<?= $z['nama_kelas']; ?>"><?= $z['nama_kelas']; ?></option>
               <?php endforeach; ?>
             </select>
@@ -26,7 +26,7 @@
         </div>
         <div class="col"></div>
       </div>
-      
+
       <div class="col-md-12 mt-2">
         <button type="button" class="btn btn-primary btn-sm float-right filterLaporanSiswa">Tampilkan</a></button>
       </div>
@@ -76,19 +76,19 @@
         <hr class="sidebar-divider">
       </div>
     </div>
-      <div class="row mt-3 mb-3">
-        <div class="col-md-12">
-          <!-- <input type="" name="store-filterLapsiswa" class="store-filterLapsiswa"> -->
-          <a href="http://lapsiswa" class="btn btn-success float-right href-lapsiswa">Cetak</a>
-        </div>
+    <div class="row mt-3 mb-3">
+      <div class="col-md-12">
+        <!-- <input type="" name="store-filterLapsiswa" class="store-filterLapsiswa"> -->
+        <a href="<?= base_url('Lapsiswa/cetak') ?>" class="btn btn-success float-right href-lapsiswa">Cetak</a>
       </div>
     </div>
-  
-
   </div>
-  <br>
 
-  <!-- /.container-fluid -->
+
+</div>
+<br>
+
+<!-- /.container-fluid -->
 
 </div>
 <!-- End of Main Content -->
@@ -99,10 +99,8 @@
     overflow: hidden;
     max-width: 90px;
     width: 130px;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
     padding-left: 10px;
     padding-right: 10px;
   }
 </style>
-
-

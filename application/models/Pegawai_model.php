@@ -1,7 +1,8 @@
 <?php
 // defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pegawai_model extends CI_Model {
+class Pegawai_model extends CI_Model
+{
 
 	public function getAllPegawai()
 	{
@@ -28,32 +29,33 @@ class Pegawai_model extends CI_Model {
 	{
 
 
+
 		//hapus detail_jadwal join mapels
-		$query_dj = "DELETE DJ FROM detail_jadwals DJ
-		JOIN mapels M ON M.id_mapel = DJ.id_mapel
-		WHERE M.id_pegawai = '$id_pegawai'";
+		// $query_dj = "DELETE DJ FROM detail_jadwals DJ
+		// JOIN mapels M ON M.id_mapel = DJ.id_mapel
+		// WHERE M.id_pegawai = '$id_pegawai'";
 
 		//hapus nilaisem join mapels
-		$query_ns = "DELETE NS FROM nilai_semesters NS
-		JOIN mapels M ON M.id_mapel = NS.id_mapel
-		WHERE M.id_pegawai = '$id_pegawai'";
+		// $query_ns = "DELETE NS FROM nilai_semesters NS
+		// JOIN mapels M ON M.id_mapel = NS.id_mapel
+		// WHERE M.id_pegawai = '$id_pegawai'";
 
-		if($this->db->query($query_dj)){
-			if($this->db->query($query_ns)) {
-				$this->db->delete('mapels', ['id_pegawai' => $id_pegawai]);
+		// if ($this->db->query($query_dj)) {
+		// 	if ($this->db->query($query_ns)) {
+		// 		$this->db->delete('mapels', ['id_pegawai' => $id_pegawai]);
 
-				//hapus nilai_eks join eksul
-				$query_ne = "DELETE NE FROM nilai_ekstrakulikulers NE
-				JOIN ekskuls E ON E.id_ekskul = NE.id_ekskul
-				WHERE E.id_pegawai = '$id_pegawai'";
+		// 		//hapus nilai_eks join eksul
+		// 		$query_ne = "DELETE NE FROM nilai_ekstrakulikulers NE
+		// 		JOIN ekskuls E ON E.id_ekskul = NE.id_ekskul
+		// 		WHERE E.id_pegawai = '$id_pegawai'";
 
-				if($this->db->query($query_ne)){
-					$this->db->delete('ekskuls', ['id_pegawai' => $id_pegawai]);
+		// 		if ($this->db->query($query_ne)) {
+		// 			$this->db->delete('ekskuls', ['id_pegawai' => $id_pegawai]);
 
-					return $this->db->delete('pegawais', ['id_pegawai' => $id_pegawai]);
-				}
-			}
-		}
+		// 			return $this->db->delete('pegawais', ['id_pegawai' => $id_pegawai]);
+		// 		}
+		// 	}
+		// }
 
 
 
@@ -70,20 +72,20 @@ class Pegawai_model extends CI_Model {
 
 
 		// //hapus mapel
-		// $this->db->delete('mapels', ['id_pegawai' => $id_pegawai]);
+		$this->db->delete('mapels', ['id_pegawai' => $id_pegawai]);
 
 		// //hapus pegawai
-		// $this->db->delete('pegawais', ['id_pegawai' => $id_pegawai]);
+		$this->db->delete('pegawais', ['id_pegawai' => $id_pegawai]);
 	}
 
 	public function getAllLevel()
 	{
 		return $this->db
-		->select('level')
-		->from('pegawais')
-		->group_by('level')
-		->get()
-		->result_array();
+			->select('level')
+			->from('pegawais')
+			->group_by('level')
+			->get()
+			->result_array();
 	}
 
 	public function getPegawaiById($id_pegawai)
@@ -107,7 +109,6 @@ class Pegawai_model extends CI_Model {
 		// insert
 		$this->db->update('pegawais', $data);
 	}
-
 }
 
 /* End of file Pegawai_model.php */

@@ -1,10 +1,10 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Lapnilaisem extends CI_Controller 
+class Lapnilaisem extends CI_Controller
 {
 
-	public function __construct()
+    public function __construct()
     {
         parent::__construct();
         // call modul database
@@ -42,11 +42,10 @@ class Lapnilaisem extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('lapnilaisem/index', $data);
             $this->load->view('templates/footer');
-        }else {
+        } else {
             // echo 'no session';
             redirect('notfound');
         }
-        
     }
 
     public function filter()
@@ -56,9 +55,13 @@ class Lapnilaisem extends CI_Controller
 
     public function cetak($nis_semester_tahunajaran)
     {
-        // echo("OKKKKKK");
-
-        if(!$nis_semester_tahunajaran = "-Pilih-_-Pilih-_-Pilih-"){
+        // public function cetak($nis, $semester, $tahun1, $tahun2)
+        // var_dump($nis, $semester, $tahun1, $tahun2);
+        // die;        // echo("OKKKKKK");
+        // var_dump(explode("_", $nis_semester_tahunajaran));
+        // die;
+        // if (!$nis_semester_tahunajaran = "-Pilih-_-Pilih-_-Pilih-") {
+        if ($nis_semester_tahunajaran) {
             $string = explode("_", $nis_semester_tahunajaran);
             $data['nis'] = $string[0];
             $data['semester'] = $string[1];
@@ -67,19 +70,16 @@ class Lapnilaisem extends CI_Controller
             $int_tahun_ajaran = (int)$string[2];
             $tambahan_tahun_ajaran = $int_tahun_ajaran + 1;
             $str_tahun_ajaran = (string)$tambahan_tahun_ajaran;
-            $data['tahun_ajaran'] = $tmp_tahun_ajaran . "/" . $str_tahun_ajaran; 
-
-            $data['nama_siswa'] = $this->Lapnilaisem_model->getNamaSiswaByNis($string[0]);
+            $data['tahun_ajaran'] = $tmp_tahun_ajaran . "/" . $str_tahun_ajaran;
+            $data['nama_siswa'] = $this->Lapnilaisem_model->getNamaSiswaByNis('100000');
             $data['nama_kelas'] = $this->Lapnilaisem_model->getNamaKelasByNis($string[0]);
-        }else {
+        } else if ($nis_semester_tahunajaran == '') {
             $data['nis'] = "Kosong";
             $data['nama_siswa'] = array("nama_siswa" => "Kosong");
             $data['nama_kelas'] = array("nama_kelas" => "Kosong");
             $data['semester'] = "Kosong";
             $data['tahun_ajaran'] = "Kosong";
         }
-
-
         $data['judul'] = 'Cetak Laporan Nilai Semester';
         $data['nsem'] = $this->Lapnilaisem_model->getAllNilaisemByNisSemesterTahunajaran($nis_semester_tahunajaran);
 

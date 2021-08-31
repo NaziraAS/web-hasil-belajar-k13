@@ -18,7 +18,7 @@
             <label for="id_kelas">Kelas</label>
             <select name="kelas" class="form-control" id="kelas">
               <option>-Pilih-</option>
-              <?php foreach($kls as $k): ?>
+              <?php foreach ($kls as $k) : ?>
                 <option value="<?= $k['nama_kelas']; ?>"><?= $k['nama_kelas']; ?></option>
               <?php endforeach; ?>
             </select>
@@ -29,7 +29,7 @@
             <label for="semester">Semester</label>
             <select name="semester" class="form-control" id="semester">
               <option>-Pilih-</option>
-              <?php foreach($smt as $s): ?>
+              <?php foreach ($smt as $s) : ?>
                 <option value="<?= $s['semester']; ?>"><?= $s['semester']; ?></option>
               <?php endforeach; ?>
             </select>
@@ -42,7 +42,7 @@
             <label for="tahun_ajaran">Tahun Ajaran</label>
             <select name="tahun_ajaran" class="form-control" id="tahun_ajaran">
               <option>-Pilih-</option>
-              <?php foreach($tahun as $t): ?>
+              <?php foreach ($tahun as $t) : ?>
                 <option value="<?= $t['tahun_ajaran']; ?>"><?= $t['tahun_ajaran']; ?></option>
               <?php endforeach; ?>
             </select>
@@ -58,13 +58,7 @@
     <!-- maincontent -->
     <div class="row mt-3">
       <div class="col-md-6">
-        <a href="<?= base_url(); ?>nilaisem/tambah" 
-        <?php if($this->session->userdata['level'] != 'Guru Mapel'): ?>
-          class="btn btn-primary btn-warningTambah"
-        <?php else: ?>
-          class="btn btn-primary"
-        <?php endif; ?>
-        >Tambah Data Nilai Semester</a>
+        <a href="<?= base_url(); ?>nilaisem/tambah" <?php if ($this->session->userdata['level'] != 'Guru Mapel') : ?> class="btn btn-primary btn-warningTambah" <?php else : ?> class="btn btn-primary" <?php endif; ?>>Tambah Data Nilai Semester</a>
       </div>
     </div>
 
@@ -91,23 +85,11 @@
                 <td><?= $ns['nis']; ?></td>
                 <td><?= $ns['nama_siswa']; ?></td>
                 <td class="px-0">
-                  <a href="<?= base_url(); ?>nilaisem/hapus/<?=$ns['nis'] ?>"
-                  <?php if($this->session->userdata['level'] != 'Guru Mapel'): ?>
-                    class="btn btn-sm btn-danger float-right btn-sm ml-2 tombol-hapus btn-warningHapus"
-                  <?php else: ?>
-                    class="btn btn-sm btn-danger float-right btn-sm ml-2 tombol-hapus"
-                  <?php endif; ?>
-                  >hapus
+                  <a href="<?= base_url(); ?>nilaisem/hapus/<?= $ns['nis'] ?>" <?php if ($this->session->userdata['level'] != 'Guru Mapel') : ?> class="btn btn-sm btn-danger float-right btn-sm ml-2 tombol-hapus btn-warningHapus" <?php else : ?> class="btn btn-sm btn-danger float-right btn-sm ml-2 tombol-hapus" <?php endif; ?>>hapus
                   </a>
-                  <a href="<?= base_url(); ?>nilaisem/ubah/<?=$ns['nis'] ?>" 
-                  <?php if($this->session->userdata['level'] != 'Guru Mapel'): ?>
-                    class="btn btn-sm btn-success float-right btn-sm ml-2 btn-warningUbah"
-                  <?php else: ?>
-                    class="btn btn-sm btn-success float-right btn-sm ml-2"
-                  <?php endif; ?>
-                  >ubah
+                  <a href="<?= base_url(); ?>nilaisem/ubah/<?= $ns['nis'] ?>" <?php if ($this->session->userdata['level'] != 'Guru Mapel') : ?> class="btn btn-sm btn-success float-right btn-sm ml-2 btn-warningUbah" <?php else : ?> class="btn btn-sm btn-success float-right btn-sm ml-2" <?php endif; ?>>ubah
                   </a>
-                  <a href="<?= base_url(); ?>nilaisem/detail/<?=$ns['nis'] ?>" class="btn btn-secondary float-right btn-sm ml-2">detail
+                  <a href="<?= base_url(); ?>nilaisem/detail/<?= $ns['nis'] ?>" class="btn btn-secondary float-right btn-sm ml-2">detail
                   </a>
 
                 </td>
@@ -162,5 +144,3 @@
   </div>
 </div>
 </div>
-
-

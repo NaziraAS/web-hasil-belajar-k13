@@ -1,4 +1,4 @@
-const base_url = 'http://localhost/sman1_lasem/';
+const base_url = 'http://localhost/smp_negeri/';
 
 $(function() {
 
@@ -33,6 +33,7 @@ $(function() {
 				// console.log(data);
 				$('#detailSiswaModalLabel').html(data.nama_siswa);
 				$('#tgl_lahir').val(data.tgl_lahir);
+				$('#alamat').val(data.alamat);
 				$('#username').val(data.username);
 				$('#password').val(data.password);
 			}
@@ -204,15 +205,15 @@ $(function() {
 						<td>${value.nis}</td>
 						<td>${value.nama_siswa}</td>
 						<td class="px-0">
-						<a href="<?= base_url(); ?>nilaisem/hapus/${value.nis}"
+						<a href="${base_url}nilaisem/hapus/${value.nis}"
 						class="btn btn-sm btn-danger float-right btn-sm ml-2 tombol-hapus"
 						>hapus
 						</a>
-						<a href="<?= base_url(); ?>nilaisem/ubah/${value.nis}" 
+						<a href="${base_url}nilaisem/ubah/${value.nis}" 
 						class="btn btn-sm btn-success float-right btn-sm ml-2"
 						>ubah
 						</a>
-						<a href="<?= base_url(); ?>nilaisem/detail/${value.nis}" class="btn btn-secondary float-right btn-sm ml-2">detail
+						<a href="${base_url}nilaisem/detail/${value.nis}" class="btn btn-secondary float-right btn-sm ml-2">detail
 						</a>
 
 						</td>
@@ -468,7 +469,7 @@ function showNamaSiswa() {
 	var nis = document.getElementById("nis").value;
 	// console.log(nis);
 	$.ajax({
-		url: base_url + 'nilaieks/getNamaSiswa',
+		url: base_url + 'Nilaisem/getNamaSiswa',
 		data: {nis : nis},
 		method: 'POST',
 		dataType: 'json',
@@ -525,9 +526,9 @@ function filterCetakLapnnilaisem() {
 	var nis = document.getElementById("nis").value;
 	var semester = document.getElementById("semester").value;
 	var tahun_ajaran = document.getElementById("tahun_ajaran").value;
-	
-	// $("a").attr("href", base_url + "lapnilaisem/cetak/" + nis + "_" + semester + "_" + tahun_ajaran);
-	$(".href-lapnilaisem").attr("href", base_url + "lapnilaisem/cetak/" + nis + "_" + semester + "_" + tahun_ajaran);
+		// $("a").attr("href", base_url + "lapnilaisem/cetak/" + nis + "_" + semester + "_" + tahun_ajaran);
+	$(".href-lapnilaisem").attr('href',base_url+'lapnilaisem/cetak/' + nis + "_" + semester + "_" + tahun_ajaran);
+	// $(".href-lapnilaisem").attr('href',base_url+'lapnilaisem/cetak/'+nis+'/'+semester+'/'+tahun_ajaran);
 	
 }
 

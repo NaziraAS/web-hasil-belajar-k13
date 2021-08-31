@@ -1,16 +1,17 @@
 <?php
 // defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Siswa_model extends CI_Model {
+class Siswa_model extends CI_Model
+{
 
 	public function getAllSiswa()
 	{
 		return $this->db
-		->select('*')
-		->from('siswas as S')
-		->join('kelass as K', 'S.id_kelas = K.id_kelas', 'left')
-		->get()
-		->result_array();
+			->select('*')
+			->from('siswas as S')
+			->join('kelass as K', 'S.id_kelas = K.id_kelas', 'left')
+			->get()
+			->result_array();
 		// return $query = $this->db->get('siswas')->result_array();
 	}
 
@@ -19,9 +20,9 @@ class Siswa_model extends CI_Model {
 		//get id_kelas
 		$nama_kelas = $this->input->post('nama_kelas', true);
 		$getIdKelas = $this->db->select('id_kelas')
-		->get_where('kelass', array('nama_kelas' => $nama_kelas))
-		->row()
-		->id_kelas;
+			->get_where('kelass', array('nama_kelas' => $nama_kelas))
+			->row()
+			->id_kelas;
 
 		// siapkan data
 		$data = [
@@ -32,7 +33,8 @@ class Siswa_model extends CI_Model {
 			"tgl_lahir" => $this->input->post('tgl_lahir', true),
 			"alamat" => $this->input->post('alamat', true),
 			"username" => $this->input->post('username', true),
-			"password" => $this->input->post('password', true)
+			"password" => $this->input->post('password', true),
+			"level" => "siswa",
 		];
 
 		// var_dump($data);
@@ -44,11 +46,11 @@ class Siswa_model extends CI_Model {
 	public function hapusDataSiswa($nis)
 	{
 		//hapus detail_presensi
-		$this->db->delete('detail_presensis', ['nis' => $nis]);
+		// $this->db->delete('detail_presensis', ['nis' => $nis]);
 		//hapus detail_nilsem
 		$this->db->delete('nilai_semesters', ['nis' => $nis]);
 		//hapus detail_nileks
-		$this->db->delete('nilai_ekstrakulikulers', ['nis' => $nis]);
+		// $this->db->delete('nilai_ekstrakulikulers', ['nis' => $nis]);
 		//hapus detail_sis
 		$this->db->delete('siswas', ['nis' => $nis]);
 	}
@@ -56,22 +58,22 @@ class Siswa_model extends CI_Model {
 	public function getAllKelas()
 	{
 		return $this->db
-		->select('*')
-		->from('kelass')
-		->get()
-		->result_array();
+			->select('*')
+			->from('kelass')
+			->get()
+			->result_array();
 	}
 
 	public function getSiswaById($nis)
 	{
 		// return $this->db->get_where('siswas', ['nis' => $nis])->row_array();
 		return $this->db
-		->select('*')
-		->from('siswas as S')
-		->join('kelass as K', 'S.id_kelas = K.id_kelas', 'left')
-		->where('nis', $nis)
-		->get()
-		->row_array();
+			->select('*')
+			->from('siswas as S')
+			->join('kelass as K', 'S.id_kelas = K.id_kelas', 'left')
+			->where('nis', $nis)
+			->get()
+			->row_array();
 	}
 
 	public function ubahDataSiswa()
@@ -99,12 +101,10 @@ class Siswa_model extends CI_Model {
 		];
 
 		// var_dump($data);
-			$this->db->where('nis', $this->input->post('tmp_nis', true));
+		$this->db->where('nis', $this->input->post('tmp_nis', true));
 		// // insert
-			$this->db->update('siswas', $data);
-
+		$this->db->update('siswas', $data);
 	}
-
 }
 
 /* End of file Siswa_model.php */

@@ -1,10 +1,10 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Lappegawai extends CI_Controller 
+class Lappegawai extends CI_Controller
 {
 
-	public function __construct()
+    public function __construct()
     {
         parent::__construct();
         // call modul database
@@ -28,11 +28,10 @@ class Lappegawai extends CI_Controller
             $this->load->view('templates/topbar', $data);
             $this->load->view('lappegawai/index', $data);
             $this->load->view('templates/footer');
-        }else {
+        } else {
             // echo 'no session';
             redirect('notfound');
         }
-        
     }
 
     public function filter()
@@ -40,20 +39,22 @@ class Lappegawai extends CI_Controller
         echo json_encode($this->Lappegawai_model->getAllPegawaiFiltered($_POST['level']));
     }
 
-    public function cetak($level)
+    public function cetak()
     {
         // echo("OKKKKKK");
         $data['judul'] = 'Cetak Laporan Pegawai';
-        $data['pgw'] = $this->Lappegawai_model->getAllPegawaiByLevel($level);
+        // $data['pgw'] = $this->Lappegawai_model->getAllPegawaiByLevel($level);
+        $data['pgw'] = $this->Lappegawai_model->getAllPegawai();
 
         $this->load->view('templates/header', $data);
         $this->load->view('lappegawai/cetak', $data);
         $this->load->view('templates/footer');
     }
 
-    public function laporan_pdf(){
+    public function laporan_pdf()
+    {
 
-        $data ['pgw'] = $this->Lappegawai_model->getAllPegawai();
+        $data['pgw'] = $this->Lappegawai_model->getAllPegawai();
 
         $this->load->library('pdf');
 
@@ -62,5 +63,4 @@ class Lappegawai extends CI_Controller
         $this->pdf->save('uploaded/nama_file.pdf', 'lappegawai/index', $data);
         // redirect(base_url('uploaded/nama_file.pdf'));
     }
-
 }

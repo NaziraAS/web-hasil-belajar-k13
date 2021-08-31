@@ -18,7 +18,7 @@
             <label for="nama_kelas">Kelas</label>
             <select name="nama_kelas" class="form-control lapnilaisemNamaKelas" id="nama_kelas" onchange="filterCetakLapnnilaisem()">
               <option>-Pilih-</option>
-              <?php foreach($kls as $z): ?>
+              <?php foreach ($kls as $z) : ?>
                 <option value="<?= $z['id_kelas']; ?>"><?= $z['nama_kelas']; ?></option>
               <?php endforeach; ?>
             </select>
@@ -29,7 +29,7 @@
             <label for="nis">NIS</label>
             <select name="nis" class="form-control lapnilaisemNis" id="nis" onchange="filterCetakLapnnilaisem()">
               <option>-Pilih-</option>
-              <?php foreach($sis as $z): ?>
+              <?php foreach ($sis as $z) : ?>
                 <option value="<?= $z['nis']; ?>"><?= $z['nis']; ?></option>
               <?php endforeach; ?>
             </select>
@@ -40,7 +40,7 @@
             <label for="semester">Semester</label>
             <select name="semester" class="form-control" id="semester" onchange="filterCetakLapnnilaisem()">
               <option>-Pilih-</option>
-              <?php foreach($smt as $z): ?>
+              <?php foreach ($smt as $z) : ?>
                 <option value="<?= $z['semester']; ?>"><?= $z['semester']; ?></option>
               <?php endforeach; ?>
             </select>
@@ -55,7 +55,7 @@
             <label for="nama_siswa">Nama Siswa</label>
             <select name="nama_siswa" class="form-control" id="nama_siswa" onchange="filterCetakLapnnilaisem()" disabled>
               <option>-Pilih-</option>
-              <?php foreach($sis as $z): ?>
+              <?php foreach ($sis as $z) : ?>
                 <option value="<?= $z['nis']; ?>"><?= $z['nama_siswa']; ?></option>
               <?php endforeach; ?>
             </select>
@@ -66,14 +66,14 @@
             <label for="tahun_ajaran">Tahun Ajaran</label>
             <select name="tahun_ajaran" class="form-control" id="tahun_ajaran" onchange="filterCetakLapnnilaisem()">
               <option>-Pilih-</option>
-              <?php foreach($tahun as $z): ?>
+              <?php foreach ($tahun as $z) : ?>
                 <option value="<?= $z['tahun_ajaran']; ?>"><?= $z['tahun_ajaran']; ?></option>
               <?php endforeach; ?>
             </select>
           </div>
         </div>
       </div>
-      
+
       <div class="col-md-12 mt-2">
         <button type="button" class="btn btn-primary btn-sm float-right filterLaporanLapnilaisem">Tampilkan</a></button>
       </div>
@@ -134,12 +134,13 @@
       <div class="col-md-12">
         <form action="" method="post">
           <!-- <input type="" name="store-filterLappegawai" class="store-filterLappegawai"> -->
-          <a href="http://lapnilaisem" class="btn btn-success float-right href-lapnilaisem">Cetak</a>
+          <!-- <a href="<?= base_url() ?>lapnilaisem/cetak" class="btn btn-success float-right href-lapnilaisem">Cetak</a> -->
+          <a href="" class="btn btn-success float-right href-lapnilaisem">Cetak</a>
         </form>
       </div>
     </div>
   </div>
-  
+
 
 </div>
 <br>
@@ -154,10 +155,13 @@
       visibility: hidden;
       /*display: all;*/
     }
-    #section-to-print, #section-to-print * {
+
+    #section-to-print,
+    #section-to-print * {
       visibility: visible;
       display: all;
     }
+
     #section-to-print {
       /*position: absolute;*/
       left: 0;
@@ -165,11 +169,10 @@
       /*display: all;      */
     }
 
-    #accordionSidebar, #form-filter{
+    #accordionSidebar,
+    #form-filter {
       display: none;
     }
-    
+
   }
 </style>
-
-
