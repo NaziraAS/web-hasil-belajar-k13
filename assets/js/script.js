@@ -34,6 +34,7 @@ $(function() {
 				$('#detailSiswaModalLabel').html(data.nama_siswa);
 				$('#tgl_lahir').val(data.tgl_lahir);
 				$('#alamat').val(data.alamat);
+				$('#jenis_kelamin').val(data.jenis_kelamin);
 				$('#username').val(data.username);
 				$('#password').val(data.password);
 			}
