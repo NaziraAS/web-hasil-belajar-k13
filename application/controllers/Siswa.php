@@ -44,14 +44,9 @@ class Siswa extends CI_Controller
             $data['kls'] = $this->Siswa_model->getAllKelas();
 
             //rules
-            $this->form_validation->set_rules(
-                'nis',
-                'NIS',
-                'required|min_length[10]|numeric',
-                [
-                    'min_length' => 'Panjang NIS minimal 10 digit'
-                ]
-            );
+            $this->form_validation->set_rules('nis', 'NIS', 'required|min_length[10]|numeric', [
+                'min_length' => 'Panjang nis harus di atas 10'
+            ]);
             $this->form_validation->set_rules('nama_siswa', 'Nama', 'required');
             $this->form_validation->set_rules('tgl_lahir', 'Tanggal lahir', 'required');
             $this->form_validation->set_rules('username', 'Username', 'required|min_length[3]|max_length[12]');

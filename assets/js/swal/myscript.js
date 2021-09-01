@@ -112,7 +112,7 @@ $('.tombol-hapus-kelas').on('click', function(e){
 
 	Swal.fire({
 		title: 'Hapus?',
-		text: "Silakan BACKUP terlebih dahulu data: Siswa, Jadwal, Presensi, Nlai semester dan Nilai Ektrakulikuler dari kelas ini !",
+		text: "Silakan BACKUP terlebih dahulu data: Siswa, nilai semester,dari kelas ini !",
 		icon: 'warning',
 		showCancelButton: true,
 		confirmButtonColor: '#3085d6',

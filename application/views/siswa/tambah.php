@@ -18,7 +18,7 @@
 						<!-- nis -->
 						<div class="form-group">
 							<label for="nis">NIS</label>
-							<input type="text" name="nis" class="form-control" id="nis" maxlength="6" value="<?= set_value('nis'); ?>">
+							<input type="text" name="nis" class="form-control" id="nis" value="<?= set_value('nis'); ?>">
 							<small class="form-text text-danger"><?= form_error('nis'); ?>.</small>
 						</div>
 
